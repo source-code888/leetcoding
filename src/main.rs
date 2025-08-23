@@ -18,6 +18,7 @@ pub mod btlot;
 mod flood_fill;
 mod data_structures;
 mod max_depth_bt;
+mod two_sum;
 
 ///
 /// let image: Vec<Vec<i32>> = vec![vec![1,1,1],vec![1,1,0],vec![1,0,1]];
@@ -30,7 +31,11 @@ mod max_depth_bt;
 //     println!("Flood: {:?}", flood_fill::Solution::flood_fill(image, sr, sc, color))
 
 fn main() {
-    let root: Option<Rc<RefCell<TreeNode>>> = TreeNode::create_tree_randomly(-100, 100, 0.45f64);
-    println!("{}", root.as_ref().unwrap().borrow());
-    println!("Max depth: {}", max_depth_bt::Solution::max_depth(root));
+
+    let vec: Vec<i32> = vec![2,7,11,15];
+    let target: i32 = 18;
+
+    println!("Vec: {:?}", vec);
+    println!("Target: {}", target);
+    println!("Two sum: {:?}", two_sum::Solution::two_sum(vec, target))
 }

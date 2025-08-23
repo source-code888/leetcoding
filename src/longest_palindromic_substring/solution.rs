@@ -13,31 +13,6 @@ pub struct Solution;
 
 impl Solution {
     pub fn longest_palindromic(s: String) -> String {
-        let len = s.len();
-        if len == 0 {
-            return s;
-        }
-        let vec: Vec<char> = s.chars().collect();
-        let mut left = 0;
-        let mut right = 0;
-        let mut start = 0;
-        let mut end = 0;
-        while right < len{
-            if right + 1 < len && vec[left] == vec[right + 1] {
-                right += 1
-            }
-            if right + 1 < len && left > 0 && vec[left - 1] == vec[right + 1] {
-                right += 1;
-                left -= 1
-            }
-            if right - left > end - start{
-                end = right;
-                start = left
-            }
-        }
-        s[start.. end].to_string()
-    }
-    pub fn longest_palindromic2(s: String) -> String {
         let vec: Vec<char> = s.chars().collect();
         let mut start = 0;
         let mut end = 0;

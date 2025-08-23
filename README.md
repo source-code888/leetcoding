@@ -17,6 +17,7 @@
         <li>Longest Palindromic Substring</li>
         <li>Binary Tree Level Order Traversal</li>
         <li>Maximum Depth of Binary Tree</li>
+        <li>Two Sum</li>
     </ul>
 </div>
 <div>
