@@ -9,13 +9,15 @@
 </div>
 <div>
     <h3>Problems</h3>
-    - String to Integer (atoi)
-    - Flood Fill
-    - ZigZag Conversion
-    - Reverse Integer
-    - Longest Palindromic Substring
-    - Binary Tree Level Order Traversal
-    - Maximum Depth of Binary Tree
+    <ul>
+        <li>String to Integer (atoi)</li>
+        <li>Flood Fill</li>
+        <li>ZigZag Conversion</li>
+        <li>Reverse Integer</li>
+        <li>Longest Palindromic Substring</li>
+        <li>Binary Tree Level Order Traversal</li>
+        <li>Maximum Depth of Binary Tree</li>
+    </ul>
 </div>
 <div>
     <h3>Additional info</h3>
