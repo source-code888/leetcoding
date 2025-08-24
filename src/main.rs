@@ -2,22 +2,23 @@
 #![allow(dead_code)]
 #![allow(warnings)]
 
+use crate::data_structures::TreeNode;
 use std::cell::RefCell;
 use std::fmt::format;
 use std::rc::Rc;
-use crate::data_structures::TreeNode;
 
 mod longest_palindromic_substring;
-mod zigzag;
 mod power_of_two;
+mod zigzag;
 
-mod reverse_integer;
-mod reordered_power_of_two;
 mod atoi;
 pub mod btlot;
-mod flood_fill;
+mod course_schedule_3;
 mod data_structures;
+mod flood_fill;
 mod max_depth_bt;
+mod reordered_power_of_two;
+mod reverse_integer;
 mod two_sum;
 
 ///
@@ -31,11 +32,10 @@ mod two_sum;
 //     println!("Flood: {:?}", flood_fill::Solution::flood_fill(image, sr, sc, color))
 
 fn main() {
-
-    let vec: Vec<i32> = vec![2,7,11,15];
-    let target: i32 = 18;
-
-    println!("Vec: {:?}", vec);
-    println!("Target: {}", target);
-    println!("Two sum: {:?}", two_sum::Solution::two_sum(vec, target))
+    let courses: Vec<Vec<i32>> = vec![vec![7,16],vec![2,3],vec![3,12],vec![3,14],vec![10,19],vec![10,16],vec![6,8],vec![6,11],vec![3,13],vec![6,16]];
+    println!("Courses: {courses:?}");
+    println!(
+        "Max courses: {}",
+        course_schedule_3::Solution::schedule_course(courses)
+    )
 }
