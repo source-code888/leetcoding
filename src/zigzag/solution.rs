@@ -26,7 +26,7 @@ impl Solution {
         result
     }
 
-    pub fn convert_to_numbers(s: String, num_rows: i32) -> Vec<i32> {
+    pub fn zigzag_pattern_indexes(s: String, num_rows: i32) -> Vec<i32> {
         if num_rows <= 1 || num_rows >= s.len() as i32 {
             return (0..s.len() as i32).collect::<Vec<i32>>();
         }
