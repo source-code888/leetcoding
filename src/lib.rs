@@ -23,6 +23,8 @@ mod two_sum;
 mod btmpt;
 mod palindrome_number;
 mod soll;
+mod best_time_to_buy_and_sell_i;
+mod best_time_to_buy_and_sell_ii;
 
 fn dfs(root: Option<Rc<RefCell<TreeNode>>>) -> Option<i32> {
     if root.is_none() {
