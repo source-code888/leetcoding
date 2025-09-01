@@ -230,6 +230,51 @@ impl TreeNode {
         root.borrow_mut().right = Some(Rc::new(RefCell::new(TreeNode::new(-3))));
         root
     }
+
+    /// # Example tree 12
+    ///
+    ///                                 (    5     )
+    ///                                /            \
+    ///                              (4)            (8)
+    ///                             /              /   \
+    ///                          (11)            (13)   (4)
+    ///                         /   \                  /   \
+    ///                      (7)    (2)              (5)   (1)
+    pub fn create_tree_12() -> Rc<RefCell<TreeNode>> {
+        let root: Rc<RefCell<TreeNode>> = Rc::new(RefCell::new(TreeNode::new(5)));
+        let left: Rc<RefCell<TreeNode>> = Rc::new(RefCell::new(TreeNode::new(4)));
+        let left_l: Rc<RefCell<TreeNode>> = Rc::new(RefCell::new(TreeNode::new(11)));
+        left_l.borrow_mut().left = Some(Rc::new(RefCell::new(TreeNode::new(7))));
+        left_l.borrow_mut().right = Some(Rc::new(RefCell::new(TreeNode::new(2))));
+        left.borrow_mut().left = Some(left_l);
+        root.borrow_mut().left = Some(left);
+        let right: Rc<RefCell<TreeNode>> = Rc::new(RefCell::new(TreeNode::new(8)));
+        right.borrow_mut().left = Some(Rc::new(RefCell::new(TreeNode::new(13))));
+        let right_r:Rc<RefCell<TreeNode>> = Rc::new(RefCell::new(TreeNode::new(4)));
+        right_r.borrow_mut().right = Some(Rc::new(RefCell::new(TreeNode::new(1))));
+        right_r.borrow_mut().left = Some(Rc::new(RefCell::new(TreeNode::new(5))));
+        right.borrow_mut().right = Some(right_r);
+        root.borrow_mut().right = Some(right);
+        root
+    }
+    
+    /// # Example tree 13
+    ///                         (-1)
+    ///                        /   \
+    ///                     (2)    (0)
+    ///                    /  \      \
+    ///                 (0)   (0)    (2)
+    pub fn create_tree_13() -> Rc<RefCell<TreeNode>> {
+        let root: Rc<RefCell<TreeNode>> = Rc::new(RefCell::new(TreeNode::new(-1)));
+        let left: Rc<RefCell<TreeNode>> = Rc::new(RefCell::new(TreeNode::new(2)));
+        left.borrow_mut().right = Some(Rc::new(RefCell::new(TreeNode::new(0))));
+        left.borrow_mut().left = Some(Rc::new(RefCell::new(TreeNode::new(0))));
+        root.borrow_mut().left = Some(left);
+        let right: Rc<RefCell<TreeNode>> = Rc::new(RefCell::new(TreeNode::new(0)));
+        right.borrow_mut().right = Some(Rc::new(RefCell::new(TreeNode::new(2))));
+        root.borrow_mut().right = Some(right);
+        root
+    }
 }
 
 

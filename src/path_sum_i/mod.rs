@@ -1,7 +1,13 @@
 use std::cell::RefCell;
 use std::rc::Rc;
 use crate::data_structures::TreeNode;
-
+/// This problem is listed on leetcode problems set
+/// URL: https://leetcode.com/problems/path-sum/description/
+/// # Description:
+/// Given the root of a binary tree and an integer targetSum,
+/// return true if the tree has a root-to-leaf path such that
+/// adding up all the values along the path equals targetSum.
+/// A leaf is a node with no children.
 pub struct Solution;
 
 impl Solution {
