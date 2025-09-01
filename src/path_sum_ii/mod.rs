@@ -19,22 +19,15 @@ impl Solution {
             Some(root) => {
                 let val = root.borrow().val;
                 if root.borrow().left.is_none() && root.borrow().right.is_none() {
-                    return if val == target_sum {
-                        vec![vec![val]]
-                    }else {
-                        vec![]
-                    }
+                    return if val == target_sum { vec![vec![val]] }else { vec![] }
                 }
-                let val = root.borrow().val;
-                let mut path_l = Self::path_sum(root.borrow().left.clone(), target_sum - val);
-                let mut path_r = Self::path_sum(root.borrow().right.clone(), target_sum - val);
                 let mut path: Vec<Vec<i32>> = vec![];
-                for mut l_p in path_l {
-                    let mut v: Vec<i32> = vec![val];
+                for mut l_p in Self::path_sum(root.borrow().left.clone(), target_sum - val) {
+                    let mut v: Vec<i32> =vec![val];
                     v.append(&mut l_p);
                     path.push(v);
                 }
-                for mut r_p in path_r {
+                for mut r_p in Self::path_sum(root.borrow().right.clone(), target_sum - val) {
                     let mut v: Vec<i32> = vec![val];
                     v.append(&mut r_p);
                     path.push(v);
