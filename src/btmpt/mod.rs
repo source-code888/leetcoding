@@ -48,7 +48,7 @@ impl Solution {
 
 #[cfg(test)]
 pub mod tests {
-    use crate::btmpt;
+    use crate::{btmpt, data_structures};
     use crate::data_structures::TreeNode;
     use std::cell::RefCell;
     use std::rc::Rc;
@@ -62,9 +62,7 @@ pub mod tests {
     /// Max path sum: 6
     #[test]
     fn case_1() {
-        let root: Rc<RefCell<TreeNode>> = Rc::new(RefCell::new(TreeNode::new(1)));
-        root.borrow_mut().left = Some(Rc::new(RefCell::new(TreeNode::new(2))));
-        root.borrow_mut().right = Some(Rc::new(RefCell::new(TreeNode::new(3))));
+        let root: Rc<RefCell<TreeNode>> = TreeNode::create_tree_1();
 
         println!("Root: {}", root.borrow());
         let max_path_sum = btmpt::Solution::max_path_sum(Some(root));
@@ -98,7 +96,7 @@ pub mod tests {
     /// Max path sum: -3
     #[test]
     fn case_3() {
-        let root: Rc<RefCell<TreeNode>> = Rc::new(RefCell::new(TreeNode::new(-3)));
+        let root: Rc<RefCell<TreeNode>> = TreeNode::create_tree_3();
         println!("Root: {}", root.borrow());
         let max_path_sum = btmpt::Solution::max_path_sum(Some(root));
         println!("Max path sum: {max_path_sum}");
@@ -114,8 +112,7 @@ pub mod tests {
     /// Max path sum: -1
     #[test]
     fn case_4() {
-        let root: Rc<RefCell<TreeNode>> = Rc::new(RefCell::new(TreeNode::new(-2)));
-        root.borrow_mut().left = Some(Rc::new(RefCell::new(TreeNode::new(-1))));
+        let root: Rc<RefCell<TreeNode>> = TreeNode::create_tree_4();
         println!("Root: {}", root.borrow());
         let max_path_sum = btmpt::Solution::max_path_sum(Some(root));
         println!("Max path sum: {max_path_sum}");
@@ -143,29 +140,31 @@ pub mod tests {
         assert_eq!(max_path_sum, 3)
     }
 
+    /// # Example test 6:
+    ///                         (2)
+    ///                        /
+    ///                     (-1)
+    /// Max path sum: 2
     #[test]
     fn case_6() {
-        let root: Rc<RefCell<TreeNode>> = Rc::new(RefCell::new(TreeNode::new(2)));
-        root.borrow_mut().left = Some(Rc::new(RefCell::new(TreeNode::new(-1))));
-
+        let root: Rc<RefCell<TreeNode>> = TreeNode::create_tree_6();
         println!("Root: {}", root.borrow());
         let max_path_sum = btmpt::Solution::max_path_sum(Some(root));
         println!("Max path sum: {max_path_sum}");
         assert_eq!(max_path_sum, 2)
     }
 
+    
+    /// # Example test 7
+    ///                             (8)
+    ///                            /   \
+    ///                         (3)    (12)
+    ///                                /   \
+    ///                             (10)   (4)
+    /// Max path sum: 33
     #[test]
     fn case_7() {
-        let root: Rc<RefCell<TreeNode>> = Rc::new(RefCell::new(TreeNode::new(8)));
-        root.borrow_mut().left = Some(Rc::new(RefCell::new(TreeNode::new(3))));
-
-        let right = Rc::new(RefCell::new(TreeNode::new(12)));
-        let right_l: Rc<RefCell<TreeNode>> = Rc::new(RefCell::new(TreeNode::new(10)));
-        let right_r: Rc<RefCell<TreeNode>> = Rc::new(RefCell::new(TreeNode::new(4)));
-
-        right.borrow_mut().left = Some(right_l);
-        right.borrow_mut().right = Some(right_r);
-        root.borrow_mut().right = Some(right);
+        let root: Rc<RefCell<TreeNode>> = TreeNode::create_tree_7();
         println!("Root: {}", root.borrow());
         let max_path_sum = btmpt::Solution::max_path_sum(Some(root));
         println!("Max path sum: {max_path_sum}");
