@@ -28,6 +28,7 @@ mod best_time_to_buy_and_sell_ii;
 mod best_time_to_buy_and_sell_iii;
 mod path_sum_i;
 mod path_sum_ii;
+mod path_sum_iii;
 
 fn dfs(root: Option<Rc<RefCell<TreeNode>>>) -> Option<i32> {
     if root.is_none() {
