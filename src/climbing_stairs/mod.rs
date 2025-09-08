@@ -63,7 +63,6 @@ mod tests {
 
     #[test]
     fn test6() {
-        let r = Solution::climb_stairs(45);
-        println!("R: {}", r);
+       assert_eq!(Solution::climb_stairs(45), 1_836_311_903);
     }
 }

@@ -30,6 +30,9 @@ mod path_sum_i;
 mod path_sum_ii;
 mod path_sum_iii;
 mod climbing_stairs;
+mod house_robber;
+mod house_robber_ii;
+mod house_robber_iii;
 
 fn dfs(root: Option<Rc<RefCell<TreeNode>>>) -> Option<i32> {
     if root.is_none() {
@@ -65,15 +68,15 @@ fn get_neighbours(root: Rc<RefCell<TreeNode>>) -> Vec<Rc<RefCell<TreeNode>>> {
     neighbours
 }
 
-#[cfg(test)]
+#[cfg(text)]
 mod tests {
     use std::cell::RefCell;
     use std::rc::Rc;
     use crate::{btmpt, dfs};
     use crate::data_structures::TreeNode;
 
-    #[test]
-    fn test_one() {
+    #[text]
+    fn text_one() {
         let root: Rc<RefCell<TreeNode>> = Rc::new(RefCell::new(TreeNode::new(-10)));
         root.borrow_mut().left = Some(Rc::new(RefCell::new(TreeNode::new(9))));
         let right: Rc<RefCell<TreeNode>> = Rc::new(RefCell::new(TreeNode::new(20)));

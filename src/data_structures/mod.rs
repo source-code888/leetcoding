@@ -51,10 +51,11 @@ impl TreeNode {
     }
 
     ///   # Example tree 1
+    ///```text
     ///                                   (1)
     ///                                  /   \
     ///                                (2)   (3)
-    ///
+    ///```
     pub fn create_tree_1() -> Rc<RefCell<TreeNode>> {
         let root: Rc<RefCell<TreeNode>> = Rc::new(RefCell::new(TreeNode::new(1)));
         root.borrow_mut().left = Some(Rc::new(RefCell::new(TreeNode::new(2))));
@@ -63,12 +64,14 @@ impl TreeNode {
     }
 
     /// # Example tree 2
+    ///```text
     ///
     ///                             (-10)
     ///                            /     \
     ///                         (9 )    (20)
     ///                                /    \
     ///                             (15)    (7)
+    ///```
     pub fn create_tree_2() -> Rc<RefCell<TreeNode>> {
         let root: Rc<RefCell<TreeNode>> = Rc::new(RefCell::new(TreeNode::new(-10)));
         root.borrow_mut().left = Some(Rc::new(RefCell::new(TreeNode::new(9))));
@@ -80,21 +83,26 @@ impl TreeNode {
     }
 
     /// # Example tree 3
+    ///```text
     ///                     (-3)
+    ///```
     pub fn create_tree_3() -> Rc<RefCell<TreeNode>> {
         Rc::new(RefCell::new(TreeNode::new(-3)))
     }
 
     /// # Example tree 4
+    ///```text
     ///                         (-2)
     ///                        /
     ///                     (-1)
+    ///```
     pub fn create_tree_4() -> Rc<RefCell<TreeNode>> {
         let root:Rc<RefCell<TreeNode>> = Rc::new(RefCell::new(TreeNode::new(-2)));
         root.borrow_mut().left = Some(Rc::new(RefCell::new(TreeNode::new(-1))));
         root
     }
     /// # Example tree 5
+    ///```text
     ///
     ///                            (  1   )
     ///                           /       \
@@ -103,6 +111,7 @@ impl TreeNode {
     ///                     (1)  (3)  (-2)
     ///                    /
     ///                  (-1)
+    ///```
     pub fn create_tree_5() -> Rc<RefCell<TreeNode>> {
         let root: Rc<RefCell<TreeNode>> = Rc::new(RefCell::new(TreeNode::new(1)));
         let left: Rc<RefCell<TreeNode>> = Rc::new(RefCell::new(TreeNode::new(-2)));
@@ -120,9 +129,11 @@ impl TreeNode {
     }
 
     /// # Example tree 6:
+    ///```text
     ///                         (2)
     ///                        /
     ///                     (-1)
+    ///```
     pub fn create_tree_6() -> Rc<RefCell<TreeNode>> {
         let root: Rc<RefCell<TreeNode>> = Rc::new(RefCell::new(TreeNode::new(2)));
         root.borrow_mut().left = Some(Rc::new(RefCell::new(TreeNode::new(-1))));
@@ -130,11 +141,13 @@ impl TreeNode {
     }
 
     /// # Example tree 7
+    ///```text
     ///                             (8)
     ///                            /   \
     ///                         (3)    (12)
     ///                                /   \
     ///                             (10)   (4)
+    ///```
     pub fn create_tree_7() -> Rc<RefCell<TreeNode>> {
         let root: Rc<RefCell<TreeNode>> = Rc::new(RefCell::new(TreeNode::new(8)));
         root.borrow_mut().left = Some(Rc::new(RefCell::new(TreeNode::new(3))));
@@ -146,6 +159,7 @@ impl TreeNode {
     }
 
     /// # Example tree 8
+    ///```text
     ///
     ///                                 (       1       )
     ///                                /                \
@@ -154,6 +168,7 @@ impl TreeNode {
     ///                         (-5)    (6)           (2)   (-2)
     ///                                /   \                   \
     ///                             (7)    (-20)              (30)
+    ///```
     pub fn create_tree_8() -> Rc<RefCell<TreeNode>> {
         let root: Rc<RefCell<TreeNode>> = Rc::new(RefCell::new(TreeNode::new(1)));
         let left: Rc<RefCell<TreeNode>> = Rc::new(RefCell::new(TreeNode::new(10)));
@@ -179,6 +194,7 @@ impl TreeNode {
 
 
     /// # Example tree 9
+    ///```text
     ///
     ///                                 (    5     )
     ///                                /            \
@@ -187,6 +203,7 @@ impl TreeNode {
     ///                          (11)            (13)   (4)
     ///                         /   \                     \
     ///                      (7)    (2)                   (1)
+    ///```
     pub fn create_tree_9() -> Rc<RefCell<TreeNode>> {
         let root: Rc<RefCell<TreeNode>> = Rc::new(RefCell::new(TreeNode::new(5)));
         let left: Rc<RefCell<TreeNode>> = Rc::new(RefCell::new(TreeNode::new(4)));
@@ -206,12 +223,14 @@ impl TreeNode {
 
 
     /// # Example tree 10
+    ///```text
     ///
     ///                         (10)
     ///                        /   \
     ///                     (2)    (11)
     ///                    /
     ///                  (0)
+    ///```
     pub fn create_tree_10() -> Rc<RefCell<TreeNode>> {
         let root: Rc<RefCell<TreeNode>> = Rc::new(RefCell::new(TreeNode::new(10)));
         root.borrow_mut().right = Some(Rc::new(RefCell::new(TreeNode::new(11))));
@@ -222,9 +241,11 @@ impl TreeNode {
     }
 
     /// # Example tree 11
+    ///```text
     ///                             (-2)
     ///                                \
     ///                                (-3)
+    ///```
     pub fn create_tree_11() -> Rc<RefCell<TreeNode>> {
         let root: Rc<RefCell<TreeNode>> = Rc::new(RefCell::new(TreeNode::new(-2)));
         root.borrow_mut().right = Some(Rc::new(RefCell::new(TreeNode::new(-3))));
@@ -232,6 +253,7 @@ impl TreeNode {
     }
 
     /// # Example tree 12
+    ///```text
     ///
     ///                                 (    5     )
     ///                                /            \
@@ -240,6 +262,7 @@ impl TreeNode {
     ///                          (11)            (13)   (4)
     ///                         /   \                  /   \
     ///                      (7)    (2)              (5)   (1)
+    ///```
     pub fn create_tree_12() -> Rc<RefCell<TreeNode>> {
         let root: Rc<RefCell<TreeNode>> = Rc::new(RefCell::new(TreeNode::new(5)));
         let left: Rc<RefCell<TreeNode>> = Rc::new(RefCell::new(TreeNode::new(4)));
@@ -259,11 +282,13 @@ impl TreeNode {
     }
     
     /// # Example tree 13
+    ///```text
     ///                         (-1)
     ///                        /   \
     ///                     (2)    (0)
     ///                    /  \      \
     ///                 (0)   (0)    (2)
+    ///```
     pub fn create_tree_13() -> Rc<RefCell<TreeNode>> {
         let root: Rc<RefCell<TreeNode>> = Rc::new(RefCell::new(TreeNode::new(-1)));
         let left: Rc<RefCell<TreeNode>> = Rc::new(RefCell::new(TreeNode::new(2)));
@@ -277,7 +302,7 @@ impl TreeNode {
     }
 
     /// # Example Tree 14
-    ///
+    ///```text
     ///                         (10)
     ///                        /    \
     ///                     (5)     (-3)
@@ -285,6 +310,7 @@ impl TreeNode {
     ///                  (3)   (2)     (11)
     ///                 /  \      \
     ///               (3)  (-2)   (1)
+    ///```
     pub fn create_tree_14() -> Rc<RefCell<TreeNode>> {
         let root: Rc<RefCell<TreeNode>> = Rc::new(RefCell::new(TreeNode::new(10)));
         let left: Rc<RefCell<TreeNode>> = Rc::new(RefCell::new(TreeNode::new(5)));
@@ -304,6 +330,7 @@ impl TreeNode {
 
 
     /// Example tree 15
+    ///```text
     ///                      (1_000_000_000)
     ///                         /
     ///                 (1_000_000_000)
@@ -313,7 +340,7 @@ impl TreeNode {
     ///         (1_000_000_000)
     ///             /
     ///     (1_000_000_000)
-    ///
+    ///```
     pub fn create_tree_15() -> Rc<RefCell<TreeNode>> {
         let root: Rc<RefCell<TreeNode>> = Rc::new(RefCell::new(TreeNode::new(1_000_000_000)));
         let left: Rc<RefCell<TreeNode>> = Rc::new(RefCell::new(TreeNode::new(1_000_000_000)));

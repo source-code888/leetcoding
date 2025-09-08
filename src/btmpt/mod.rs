@@ -54,7 +54,7 @@ pub mod tests {
     use std::rc::Rc;
     use crate::btmpt::Solution;
 
-    ///   # Example Test 1
+    ///   # Example test 1
     ///                                   (1)
     ///                                  /   \
     ///                                (2)   (3)
