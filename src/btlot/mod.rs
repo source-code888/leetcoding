@@ -1,9 +1,9 @@
-/// # Binary Tree Level Order Traversal
-/// This problem is listed on leetcode problems set
-/// URL: https://leetcode.com/problems/binary-tree-level-order-traversal/description/
-/// # Description:
-/// Given the root of a binary tree, return the level order traversal of its nodes' values.
-/// (i.e., from left to right, level by level).
+//! # Binary Tree Level Order Traversal
+//! This problem is listed on leetcode problems set
+//! URL: https://leetcode.com/problems/binary-tree-level-order-traversal/description/
+//! # Description:
+//! Given the root of a binary tree, return the level order traversal of its nodes' values.
+//! (i.e., from left to right, level by level).
 use std::cell::RefCell;
 use std::collections::VecDeque;
 use std::rc::Rc;

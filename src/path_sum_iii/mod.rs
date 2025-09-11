@@ -1,14 +1,24 @@
+//! # Path Sum III
+//! This problem listed on leetcode problems set
+//! URL: https://leetcode.com/problems/path-sum-iii/description/
+//! # Description:
+//! Given the root of a binary tree and an integer targetSum,
+//! return the number of paths where the sum of the values along the path equals targetSum.
+//! The path does not need to start or end at the root or a leaf,
+//! but it must go downwards (i.e., traveling only from parent nodes to child nodes).
+//! # Approach
+//! DFS
+//! - We have to consider three things:
+//!     - Count paths where **sum** equals **target_sum** including root.
+//!     - Count paths where **sum** equals **target_sum** excluding root.
+//!     - Perform both operations on each **node**.
+//! - First function:
+//!     - Count paths on **root**, it is done by a helper DFS function.
+//!     - Calls itself recursively with **left_root** and **right_root**
+//! - This way, we ensure all possible paths are explored.
 use std::cell::RefCell;
 use std::rc::Rc;
 use crate::data_structures::TreeNode;
-/// # Path Sum III
-/// This problem listed on leetcode problems set
-/// URL: https://leetcode.com/problems/path-sum-iii/description/
-/// # Description:
-/// Given the root of a binary tree and an integer targetSum,
-/// return the number of paths where the sum of the values along the path equals targetSum.
-/// The path does not need to start or end at the root or a leaf,
-/// but it must go downwards (i.e., traveling only from parent nodes to child nodes).
 pub struct Solution;
 
 impl Solution {

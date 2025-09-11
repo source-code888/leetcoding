@@ -1,17 +1,16 @@
+//! # Binary Tree Maximum Path Sum
+//! This problem is listed on LeetCode problems set
+//! URL: https://leetcode.com/problems/binary-tree-maximum-path-sum/description/
+//! # Description
+//! A path in a binary tree is a sequence of nodes where each pair of adjacent nodes in the sequence has an edge
+//! connecting them. A node can only appear in the sequence at most once.
+//! Note that the path does not need to pass through the root.
+//! The path sum of a path is the sum of the node's values in the path.
+//! Given the root of a binary tree, return the maximum path sum of any non-empty path.
 use crate::data_structures::TreeNode;
 use std::cell::RefCell;
 use std::rc::Rc;
-/// # Binary Tree Maximum Path Sum
-/// This problem is listed on LeetCode problems set
-/// URL: https://leetcode.com/problems/binary-tree-maximum-path-sum/description/
-/// # Description
-/// A path in a binary tree is a sequence of nodes where each pair of adjacent nodes in the sequence has an edge
-/// connecting them. A node can only appear in the sequence at most once.
-/// Note that the path does not need to pass through the root.
-///
-/// The path sum of a path is the sum of the node's values in the path.
-///
-/// Given the root of a binary tree, return the maximum path sum of any non-empty path.
+
 pub struct Solution;
 
 impl Solution {
@@ -19,7 +18,7 @@ impl Solution {
     /// This solution is not mine, I gave up.
     /// The URL where I found an explanation of this approach is the next:
     /// https://interviewnoodle.com/amazon-sde-interview-experience-on-campus-e8444ee791b
-    /// I was implementing a DFS algorithm but I did not figure out how to keep track to the max path sum.
+    /// I was implementing a DFS algorithm, but I did not figure out how to keep track to the max path sum.
     pub fn max_path_sum(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
         let (root_max_depth, root_overall_depth) = Self::dfs_max_path(root);
         root_max_depth.max(root_overall_depth)
@@ -48,16 +47,13 @@ impl Solution {
 
 #[cfg(test)]
 pub mod tests {
-    use crate::{btmpt, data_structures};
-    use crate::data_structures::TreeNode;
-    use std::cell::RefCell;
-    use std::rc::Rc;
-    use crate::btmpt::Solution;
-
+    use super::*;
     ///   # Example test 1
+    /// ```text
     ///                                   (1)
     ///                                  /   \
     ///                                (2)   (3)
+    /// ```
     ///
     /// Max path sum: 6
     #[test]
@@ -65,62 +61,67 @@ pub mod tests {
         let root: Rc<RefCell<TreeNode>> = TreeNode::create_tree_1();
 
         println!("Root: {}", root.borrow());
-        let max_path_sum = btmpt::Solution::max_path_sum(Some(root));
+        let max_path_sum = Solution::max_path_sum(Some(root));
         println!("Max path sum: {max_path_sum}");
 
         assert_eq!(max_path_sum, 6);
     }
 
     /// # Example test 2
-    ///
+    ///```text
     ///                             (-10)
     ///                            /     \
     ///                         (9 )    (20)
     ///                                /    \
     ///                             (15)    (7)
-    ///
+    /// ```
     /// Max path sum: 42
     #[test]
     fn case_2() {
         let root: Rc<RefCell<TreeNode>> = TreeNode::create_tree_2();
         println!("Root: {}", root.borrow());
-        let max_path_sum = btmpt::Solution::max_path_sum(Some(root));
+        let max_path_sum = Solution::max_path_sum(Some(root));
         println!("Max path sum: {max_path_sum}");
 
         assert_eq!(max_path_sum, 42);
     }
 
     /// # Example test 3
+    /// ```text
     ///                     (-3)
     ///
+    /// ```
     /// Max path sum: -3
     #[test]
     fn case_3() {
         let root: Rc<RefCell<TreeNode>> = TreeNode::create_tree_3();
         println!("Root: {}", root.borrow());
-        let max_path_sum = btmpt::Solution::max_path_sum(Some(root));
+        let max_path_sum = Solution::max_path_sum(Some(root));
         println!("Max path sum: {max_path_sum}");
 
         assert_eq!(max_path_sum, -3)
     }
 
     /// # Example test 4
+    /// ```text
     ///                         (-2)
     ///                        /
     ///                     (-1)
+    /// ```
     ///
     /// Max path sum: -1
     #[test]
     fn case_4() {
         let root: Rc<RefCell<TreeNode>> = TreeNode::create_tree_4();
         println!("Root: {}", root.borrow());
-        let max_path_sum = btmpt::Solution::max_path_sum(Some(root));
+        let max_path_sum = Solution::max_path_sum(Some(root));
         println!("Max path sum: {max_path_sum}");
 
         assert_eq!(max_path_sum, -1)
     }
 
     /// # Example test 5
+    /// ```text
     ///
     ///                            (  1   )
     ///                           /       \
@@ -129,50 +130,54 @@ pub mod tests {
     ///                     (1)  (3)  (-2)
     ///                    /
     ///                  (-1)
-    ///
+    ///```
     /// Max path sum: 3
     #[test]
     fn case_5() {
         let root: Rc<RefCell<TreeNode>> = TreeNode::create_tree_5();
         println!("Root: {}", root.borrow());
-        let max_path_sum = btmpt::Solution::max_path_sum(Some(root));
+        let max_path_sum = Solution::max_path_sum(Some(root));
         println!("Max path sum: {max_path_sum}");
         assert_eq!(max_path_sum, 3)
     }
 
     /// # Example test 6:
+    /// ```text
     ///                         (2)
     ///                        /
     ///                     (-1)
+    /// ```
     /// Max path sum: 2
     #[test]
     fn case_6() {
         let root: Rc<RefCell<TreeNode>> = TreeNode::create_tree_6();
         println!("Root: {}", root.borrow());
-        let max_path_sum = btmpt::Solution::max_path_sum(Some(root));
+        let max_path_sum = Solution::max_path_sum(Some(root));
         println!("Max path sum: {max_path_sum}");
         assert_eq!(max_path_sum, 2)
     }
 
     
     /// # Example test 7
+    /// ```text
     ///                             (8)
     ///                            /   \
     ///                         (3)    (12)
     ///                                /   \
     ///                             (10)   (4)
+    /// ```
     /// Max path sum: 33
     #[test]
     fn case_7() {
         let root: Rc<RefCell<TreeNode>> = TreeNode::create_tree_7();
         println!("Root: {}", root.borrow());
-        let max_path_sum = btmpt::Solution::max_path_sum(Some(root));
+        let max_path_sum = Solution::max_path_sum(Some(root));
         println!("Max path sum: {max_path_sum}");
         assert_eq!(max_path_sum, 33)
     }
 
     /// # Example test 8
-    ///
+    /// ```text
     ///                                 (       1       )
     ///                                /                \
     ///                             (10)                (15)
@@ -180,13 +185,13 @@ pub mod tests {
     ///                         (-5)    (6)           (2)   (-2)
     ///                                /   \                   \
     ///                             (7)    (-20)              (30)
-    ///
+    /// ```
     ///  Max depth: 67
     #[test]
     fn case_8(){
         let root: Rc<RefCell<TreeNode>> = TreeNode::create_tree_8();
         println!("Root: {}", root.borrow());
-        let max_path_sum = btmpt::Solution::max_path_sum(Some(root));
+        let max_path_sum = Solution::max_path_sum(Some(root));
         println!("Max path sum: {max_path_sum}");
         assert_eq!(max_path_sum, 67)
     }

@@ -1,8 +1,8 @@
-/// # Palindrome Number
-/// This problem is listed on leetcode problems set
-/// URL: https://leetcode.com/problems/palindrome-number/description/
-/// # Description:
-/// Given an integer x, return true if x is a palindrome, and false otherwise.
+//! # Palindrome Number
+//! This problem is listed on leetcode problems set
+//! URL: https://leetcode.com/problems/palindrome-number/description/
+//! # Description:
+//! Given an integer x, return true if x is a palindrome, and false otherwise.
 pub struct Solution;
 
 impl Solution {

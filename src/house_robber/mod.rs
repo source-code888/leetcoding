@@ -1,21 +1,18 @@
-
-/// # House Robber I
-/// This problem is listed on leetcode problems set.
-/// # Description:
-/// You are a professional robber planning to rob houses along a street.
-/// Each house has a certain amount of money stashed,
-/// the only constraint stopping you from robbing each of them is that adjacent
-/// houses have security systems connected and it will automatically contact the police
-/// if two adjacent houses were broken into on the same night.
-/// Given an integer array nums representing the amount of money of each house,
-/// return the maximum amount of money you can rob tonight without alerting the police.
+//! # House Robber I
+//! This problem is listed on leetcode problems set.
+//! ## Description:
+//! You are a professional robber planning to rob houses along a street.
+//! Each house has a certain amount of money stashed,
+//! the only constraint stopping you from robbing each of them is that adjacent
+//! houses have security systems connected and it will automatically contact the police
+//! if two adjacent houses were broken into on the same night.
+//! Given an integer array nums representing the amount of money of each house,
+//! return the maximum amount of money you can rob tonight without alerting the police.
 pub struct Solution;
 
 impl Solution {
     pub fn rob(nums: Vec<i32>) -> i32 {
-        if nums.len() < 1 {
-            return 0i32;
-        } else if nums.len() == 1 {
+        if nums.len() == 1 {
             return nums[0];
         }
         let mut dp: Vec<i32> = vec![0i32; nums.len()];
@@ -53,7 +50,8 @@ mod tests {
 
     #[test]
     fn test5() {
-        assert_eq!(Solution::rob(vec![i32::MIN / 10, i32::MIN + 100, -1010010200, 0]), 0);
+        // Leetcode says each value in nums is between [0, 400]
+        //assert_eq!(Solution::rob(vec![i32::MIN / 10, i32::MIN + 100, -1010010200, 0]), 0);
     }
 
     #[test]

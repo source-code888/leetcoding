@@ -1,21 +1,20 @@
+//! Path sum I
+//! This problem is listed on leetcode problems set
+//! URL: https://leetcode.com/problems/path-sum/description/
+//! # Description:
+//! Given the root of a binary tree and an integer targetSum,
+//! return true if the tree has a root-to-leaf path such that
+//! adding up all the values along the path equals targetSum.
+//! A leaf is a node with no children.
+use crate::data_structures::TreeNode;
 use std::cell::RefCell;
 use std::rc::Rc;
-use crate::data_structures::TreeNode;
-/// Path sum I
-/// This problem is listed on leetcode problems set
-/// URL: https://leetcode.com/problems/path-sum/description/
-/// # Description:
-/// Given the root of a binary tree and an integer targetSum,
-/// return true if the tree has a root-to-leaf path such that
-/// adding up all the values along the path equals targetSum.
-/// A leaf is a node with no children.
 pub struct Solution;
 
 impl Solution {
-
     pub fn has_path_sum(root: Option<Rc<RefCell<TreeNode>>>, sum: i32) -> bool {
         if root.is_none() {
-            return false
+            return false;
         }
         let root = root.unwrap();
         let val = root.borrow().val;
@@ -26,9 +25,7 @@ impl Solution {
         let right_sum = Self::has_path_sum(root.borrow().right.clone(), sum - val);
         left_sum || right_sum
     }
-
 }
-
 
 #[cfg(test)]
 mod tests {
@@ -49,7 +46,6 @@ mod tests {
         let root: Rc<RefCell<TreeNode>> = TreeNode::create_tree_9();
         assert!(Solution::has_path_sum(Some(root), 22))
     }
-
 
     /// # Example test 1
     ///                                   (1)
@@ -112,7 +108,7 @@ mod tests {
     ///
     /// Has path sum: true
     #[test]
-    fn test6(){
+    fn test6() {
         let root: Rc<RefCell<TreeNode>> = TreeNode::create_tree_11();
         assert!(Solution::has_path_sum(Some(root), -5))
     }

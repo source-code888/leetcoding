@@ -1,8 +1,29 @@
+//! # House Robber III
+//! ## Problem description:
+//! The thief has found himself a new place for his thievery again.
+//! There is only one entrance to this area, called root.
+//! Besides the root, each house has one and only one parent house.
+//! After a tour, the smart thief realized that all houses in this place form a binary tree.
+//! It will automatically contact the police if two directly-linked houses were broken into on the same night.
+//! Given the root of the binary tree, return the maximum amount of money the thief can rob without
+//! alerting the police.
+//! ## Approach
+//! DFS, I tried level order traversal first xd
+//! After taking a closed look at this problem, I realized that we can do the next:
+//! - Rob including the root and rob excluding the root
+//! - If **root** is leaf, we should return its **value**.
+//! - If we rob including **root**, and it has child nodes, then we have to
+//! rob excluding the **root** of them.
+//! - If we rob excluding **root**, and it has child nodes, so we can rob to
+//! its child nodes in four ways and keep the **max value**.
+//!     - **Option 1**: Rob including **left root** and **right root**.
+//!     - **Option 2**: Rob including **left root** and excluding **right root**.
+//!     - **Option 3**: Rob excluding **left root** and including **right root**.
+//!     - **Option 4**: Rob excluding **both** roots.
+//! - Do not forget to keep the **max value** between those four combinations.
 use crate::data_structures::TreeNode;
 use std::cell::RefCell;
-use std::collections::VecDeque;
 use std::rc::Rc;
-
 pub struct Solution;
 
 impl Solution {

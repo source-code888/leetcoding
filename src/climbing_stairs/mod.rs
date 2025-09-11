@@ -1,16 +1,20 @@
+//! # Climbing Stairs
+//! This problem is listed on leetcode problems set
+//! URL: https://leetcode.com/problems/climbing-stairs/description/
+//! ## Description
+//! You are climbing a staircase. It takes n steps to reach the top.
+//! Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
+//! ## Approach
+//! DP
+//! This problem is similar to the classical fibonacci problem.
+//! - We can climb 1 or 2 steps
+//! - If *n* is equal to **1**, then we can just climb **1 step**.
+//! - If **n** is equal to **2**, then we can climbi by **1 + 1 step** and by **2 steps**.
+//! - If **n** is greater than **2**, we can climb **n - 2 steps** and **n - 1 steps**.
+//! - This approach uses recursive functions, so with high inputs it will be slow. To make it
+//! faster we can use **memoization**, so we do not calculate **climbing_stairs(n)** more than once.
+//! - It can be solved with for loop, but I rather solve this by recursive functions.
 use std::collections::HashMap;
-
-/// # Climbing Stairs
-/// This problem is listed on leetcode problems set
-/// URL: https://leetcode.com/problems/climbing-stairs/description/
-/// # Description
-/// You are climbing a staircase. It takes n steps to reach the top.
-/// Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
-/// # Example 1:
-/// n = 2
-/// Explanation: There are two ways to climb to the top.
-/// 1. 1 step + 1 step
-/// 2. 2 steps
 pub struct Solution;
 
 impl Solution {
