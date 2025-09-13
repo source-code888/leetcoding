@@ -5,7 +5,7 @@
 //! Notice that the solution set must not contain duplicate triplets.
 //! ## Approach
 //! Two pointers
-//! - We can sort the input array and set two pointers, one to the end and the other one
+//! - We can sort the input array and set two pointers, one to the end and one
 //! to **index** + 1.
 //! - If we iterate through **nums**, then, we can select **nums\[index]** and set a
 //! **target**, this target is equal to **-nums\[index]**.
