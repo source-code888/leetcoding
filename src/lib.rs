@@ -29,3 +29,5 @@ mod house_robber_ii;
 mod house_robber_iii;
 mod three_sum;
 mod three_sum_closest;
+mod four_sum;
+mod median_of_two_sorted_arrays;

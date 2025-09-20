@@ -1,7 +1,7 @@
 //! # 3 SUM CLOSEST
 //! ## Problem description:
 //! Given an integer array nums of length n and an integer target,
-//! find three integers in nums such that the sum is closest to target.
+//! find three integers in nums such that the sum is closest to **target**.
 //! Return the sum of the three integers.
 //! You may assume that each input would have exactly one solution.
 //! ## Approach
@@ -17,14 +17,14 @@ pub struct Solution;
 impl Solution {
     pub fn three_sum_closest(nums: Vec<i32>, target: i32) -> i32 {
         if nums.len() < 3 {
-            return 0
+            return 0;
         }
         let mut result = nums[0] + nums[1] + nums[2];
-        if nums.len() == 3{
-            return result
+        if nums.len() == 3 {
+            return result;
         }
         let mut nums: Vec<i32> = nums;
-        let mut min = i32::MAX;
+        let mut min = (target - result).abs();
         nums.sort();
         for i in 0..nums.len() - 2 {
             let mut l: usize = i + 1;
@@ -107,12 +107,18 @@ mod tests {
 
     #[test]
     fn test7() {
-        assert_eq!(Solution::three_sum_closest(vec![1000, -1000, 2000, -2000, 500], 300), 500)
+        assert_eq!(
+            Solution::three_sum_closest(vec![1000, -1000, 2000, -2000, 500], 300),
+            500
+        )
     }
 
     #[test]
     fn test8() {
-        assert_eq!(Solution::three_sum_closest(vec![5, 20, 40, 1, 2, 3], 50), 48)
+        assert_eq!(
+            Solution::three_sum_closest(vec![5, 20, 40, 1, 2, 3], 50),
+            48
+        )
     }
 
     #[test]
@@ -122,6 +128,12 @@ mod tests {
 
     #[test]
     fn test10() {
-        assert_eq!(Solution::three_sum_closest(vec![-15, 16, 45, 34, 24, 56, -14, -5, 6, 0, -1, 2, 36], 45), 45)
+        assert_eq!(
+            Solution::three_sum_closest(
+                vec![-15, 16, 45, 34, 24, 56, -14, -5, 6, 0, -1, 2, 36],
+                45
+            ),
+            45
+        )
     }
 }

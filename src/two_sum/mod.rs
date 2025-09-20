@@ -18,16 +18,62 @@ impl Solution {
         {
             return vec![];
         }
-        for i in 0..nums.len() {
-            let mut start: usize = i;
-            let mut end: usize = i + 1; // Since we can't use the same element to reach the target
-            while end < nums.len() && nums[start] + nums[end] != target{
-                end += 1
+        for i in 0..nums.len() - 1 {
+            let mut end: usize = nums.len() - 1;
+            while end > i + 1 && nums[i] + nums[end] != target{
+                end -= 1
             }
-            if end < nums.len() && nums[start] + nums[end] == target {
-                return vec![start as i32, end as i32]
+            if nums[i] + nums[end] == target {
+                return vec![i as i32, end as i32]
             }
         }
         vec![]
     }
+
+    pub fn two_sum_p(nums: Vec<i32>, target: i32) -> Vec<i32> {
+        if nums.len() < 2 {
+            return vec![];
+        }
+        let mut nums: Vec<i32> = nums;
+        nums.sort();
+        for i in 0..nums.len() - 1{
+            let target = target - nums[i];
+            if let Some(j) = Self::helper(&nums[i + 1..], target) {
+                return vec![i as i32, j]
+            }
+        }
+        vec![]
+    }
+
+    fn helper(nums: &[i32], target: i32) -> Option<i32> {
+        let mut l = 0usize;
+        let mut r:usize = nums.len() - 1;
+        while l <= r {
+            let mid: usize = l + (r - l) / 2;
+            if nums[mid] == target {
+                return Some(mid as i32)
+            } else if nums[mid] > target {
+                r = mid - 1
+            }else {
+                l = mid + 1
+            }
+        }
+        None
+    }
+}
+
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn test1 (){
+        assert_eq!(Solution::two_sum_p(vec![2, 7, 11, 15], 9), vec![0, 1])
+    }
+
+    #[test]
+    fn test2 () {
+        assert_eq!(Solution::two_sum_p(vec![3, 2, 4], 6), vec![1, 2])
+    }
+
 }
