@@ -7,32 +7,28 @@
 //! Note that 1 does not map to any letters.
 //!
 //! ## Approach
-//! It can be solved with recursion but it's very common to see that solution, so I rather did what is in the code. It sucks btw.
-
+//! It can be solved with recursion, but it's very common to see that solution, so I rather did what is in the code. It sucks btw.
 use std::collections::HashMap;
-
 pub struct Solution;
-
 impl Solution {
     pub fn letter_combinations(digits: String) -> Vec<String> {
         if digits.is_empty() {
             return vec![];
         }
-        let mut map: HashMap<char, Vec<&'static str>> = HashMap::new();
-        map.insert('2', vec!["a", "b", "c"]);
-        map.insert('3', vec!["d", "e", "f"]);
-        map.insert('4', vec!["g", "h", "i"]);
-        map.insert('5', vec!["j", "k", "l"]);
-        map.insert('6', vec!["m", "n", "o"]);
-        map.insert('7', vec!["p", "q", "r", "s"]);
-        map.insert('8', vec!["t", "u", "v"]);
-        map.insert('9', vec!["w", "x", "y", "z"]);
-        let mut combinations: Vec<String> = vec![];
-        let digit = digits.chars().nth(digits.len() - 1).unwrap();
-        let letters = map.get(&digit).unwrap().clone();
-        for l in letters {
-            combinations.push(l.to_string());
-        }
+        let map: HashMap<char, Vec<&'static str>> = HashMap::from([
+            ('2', vec!["a", "b", "c"]),
+            ('3', vec!["d", "e", "f"]),
+            ('4', vec!["g", "h", "i"]),
+            ('5', vec!["j", "k", "l"]),
+            ('6', vec!["m", "n", "o"]),
+            ('7', vec!["p", "q", "r", "s"]),
+            ('8', vec!["t", "u", "v"]),
+            ('9', vec!["w", "x", "y", "z"]),
+        ]);
+        let mut combinations: Vec<String> = map[&digits.chars().last().unwrap()]
+            .iter()
+            .map(|s| s.to_string())
+            .collect();
         let digits = &digits[0..digits.len() - 1];
         for d in digits.chars().rev() {
             let letters = map.get(&d).unwrap().clone();
