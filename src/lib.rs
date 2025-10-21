@@ -32,3 +32,4 @@ mod three_sum_closest;
 mod four_sum;
 mod median_of_two_sorted_arrays;
 mod two_sum_ii;
+mod lcpn;
