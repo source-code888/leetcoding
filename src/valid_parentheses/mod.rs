@@ -28,6 +28,26 @@ impl Solution {
     }
 }
 
+mod valid_parentheses_v2 {
+
+    pub fn is_valid(s: String) -> bool {
+        let mut st: Vec<char> = vec![];
+        for c in s.chars().collect::<Vec<char>>() {
+            match c {
+                '(' => st.push(')'),
+                '[' => st.push(']'),
+                '{' => st.push('}'),
+                _ => {
+                    if st.pop_if(|_c| *_c == c).is_none() {
+                        return false;
+                    }
+                }
+            }
+        }
+        st.is_empty()
+    }
+}
+
 #[cfg(test)]
 mod test {
 
@@ -59,7 +79,9 @@ mod test {
 
     #[test]
     fn test_6() {
-        assert!(!Solution::is_valid(String::from("[(){}]({[]}))")))
+        assert!(!valid_parentheses_v2::is_valid(String::from(
+            "[(){}]({[]}))"
+        )))
     }
 
     #[test]
